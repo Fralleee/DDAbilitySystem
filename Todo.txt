@@ -5,17 +5,16 @@
 + Bolt 									=> 	Active, Direction, Hostile
 + AOE 									=> 	Active, Location, Hostile
 + Ensure that all these spell types work
++ Do performance testing (need object pooling tho)
 
-- Do performance testing
-  100s of agents firing at eachother
-
-
-- Try to implement this into FralleUnity
-  Deprecate old AbilitySystem
 - Try to implement this into Legion
-  Apply animations and whatnot
+  Set this up in the Sandbox folder  
+  Comment out ability code in Battle.dll and import anew
+  Apply animations, cooldowns and whatnot to scripts  
 
-
+  
+- When it works: Implement this into FralleUnity
+  
 // Wait with these for a while
 // Maybe player only
 - Healing Aura 		=> Toggle, Location, Friendly

@@ -31,8 +31,9 @@ public abstract class Ability : ScriptableObject
     targetLayer = targetTeam == AbilityTargetTeam.Enemy ? owner.hostileLayer : owner.friendlyLayer;
   }
   public abstract void Cast(bool selfCast = false);
-  public bool Test(GameObject target, bool selfCast = false)
+  public bool Test(RequirementType type, GameObject target, bool selfCast = false)
   {
-    return requirements.All(x => x.Test(owner, this, target, selfCast));
+    if (type == RequirementType.All) return requirements.All(x => x.Test(owner, this, target, selfCast));
+    return requirements.Where(x => x.requirementType == type).All(x => x.Test(owner, this, target, selfCast));
   }
 }

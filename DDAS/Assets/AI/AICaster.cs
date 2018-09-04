@@ -38,7 +38,7 @@ public class AICaster : AbilityCaster
   protected override bool TryCast(Ability ability, bool selfCast = false)
   {
     bool foundTarget = targeter.FindTarget(ability);
-    return ability.Test(targeter.currentTarget, selfCast);
+    return ability.Test(RequirementType.Casting, targeter.currentTarget, selfCast);
   }
 
   public override void TargetCast(TargetAbility ability, bool selfCast = false)

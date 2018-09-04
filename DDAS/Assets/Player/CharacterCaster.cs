@@ -19,7 +19,7 @@ public class CharacterCaster : AbilityCaster
 
   protected override bool TryCast(Ability ability, bool selfCast = false)
   {
-    return ability.Test(targeter.currentTarget, selfCast);
+    return ability.Test(RequirementType.All, targeter.currentTarget, selfCast);
   }
 
   public override void TargetCast(TargetAbility ability, bool selfCast)

@@ -7,6 +7,10 @@
 - Colossus ray 					=> 	Active, Point, Hostile
 
 - Ensure that all these spell types work
+- Do performance testing
+  100s of agents firing at eachother
+
+
 - Try to implement this into FralleUnity
   Deprecate old AbilitySystem
 - Try to implement this into Legion

@@ -5,6 +5,7 @@ public class RequireLineOfSight : AbilityRequirement
 {
   public override bool Test(AbilityCaster caster, Ability ability, GameObject target, bool useSelfCast = false)
   {
+    Debug.Log("Testing Require Line Of Sight");
     if (!target) return false;
     LayerMask layerMask = 1 << ability.environmentLayer | 1 << ability.targetLayer;
     Vector3 direction = target.transform.position - caster.transform.position;

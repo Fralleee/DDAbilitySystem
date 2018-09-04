@@ -34,6 +34,6 @@ public abstract class Ability : ScriptableObject
   public bool Test(RequirementType type, GameObject target, bool selfCast = false)
   {
     if (type == RequirementType.All) return requirements.All(x => x.Test(owner, this, target, selfCast));
-    return requirements.Where(x => x.requirementType == type).All(x => x.Test(owner, this, target, selfCast));
+    return requirements.Where(x => x.requirementType == type || x.requirementType == RequirementType.All).All(x => x.Test(owner, this, target, selfCast));
   }
 }

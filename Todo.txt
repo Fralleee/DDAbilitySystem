@@ -4,6 +4,13 @@
 + Extra movement speed 	=> 	Passive, Target, Self
 + Bolt 									=> 	Active, Direction, Hostile
 - AOE 									=> 	Active, Location, Hostile
+- Colossus ray 					=> 	Active, Point, Hostile
+
+- Ensure that all these spell types work
+- Try to implement this into FralleUnity
+  Deprecate old AbilitySystem
+- Try to implement this into Legion
+  Apply animations and whatnot
 
 
 // Wait with these for a while

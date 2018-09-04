@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu(menuName = "Abilities/Requirements/Line of sight")]
 public class RequireLineOfSight : AbilityRequirement
 {
   public override bool Test(AbilityCaster caster, Ability ability, GameObject target, bool useSelfCast = false)

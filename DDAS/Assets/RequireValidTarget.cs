@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu(menuName = "Abilities/Requirements/Valid target")]
 public class RequireValidTarget : AbilityRequirement
 {
   public override bool Test(AbilityCaster caster, Ability ability, GameObject target, bool useSelfCast = false)

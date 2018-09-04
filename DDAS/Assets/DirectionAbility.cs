@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu(menuName = "Abilities/Direction")]
 public class DirectionAbility : Ability
 {
   public GameObject prefab;

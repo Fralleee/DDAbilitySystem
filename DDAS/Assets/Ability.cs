@@ -33,7 +33,14 @@ public abstract class Ability : ScriptableObject
   public abstract void Cast(bool selfCast = false);
   public bool Test(RequirementType type, GameObject target, bool selfCast = false)
   {
-    if (type == RequirementType.All) return requirements.All(x => x.Test(owner, this, target, selfCast));
-    return requirements.Where(x => x.requirementType == type || x.requirementType == RequirementType.All).All(x => x.Test(owner, this, target, selfCast));
+    bool result;
+    if (type == RequirementType.All)
+    {
+      result = requirements.All(x => x.Test(owner, this, target, selfCast));
+      return result;
+    }
+
+    result = requirements.Where(x => x.requirementType == type || x.requirementType == RequirementType.All).All(x => x.Test(owner, this, target, selfCast));
+    return result;
   }
 }

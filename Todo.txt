@@ -1,12 +1,11 @@
 # Data driven Ability System
-+ Target Ability 				=> 	Active, Target, Hostile
++ Target Ability 						=> 	Active, Target, Hostile
 + Heal 									=> 	Active, Target, Friendly
-+ Extra movement speed 	=> 	Passive, Target, Self
++ Extra movement speed 					=> 	Passive, Target, Self
 + Bolt 									=> 	Active, Direction, Hostile
-- AOE 									=> 	Active, Location, Hostile
-- Colossus ray 					=> 	Active, Point, Hostile
++ AOE 									=> 	Active, Location, Hostile
++ Ensure that all these spell types work
 
-- Ensure that all these spell types work
 - Do performance testing
   100s of agents firing at eachother
 

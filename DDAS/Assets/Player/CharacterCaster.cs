@@ -19,7 +19,8 @@ public class CharacterCaster : AbilityCaster
 
   protected override bool TryCast(Ability ability, bool selfCast = false)
   {
-    return ability.Test(RequirementType.All, targeter.currentTarget, selfCast);
+    if(ability.targetType == AbilityTargetType.Target) return ability.Test(RequirementType.All, targeter.currentTarget, selfCast);
+    return true;
   }
 
   public override void TargetCast(TargetAbility ability, bool selfCast)
@@ -37,12 +38,13 @@ public class CharacterCaster : AbilityCaster
 
   public override void PointCast(PointAbility ability)
   {
-    GameObject instance = Instantiate(ability.prefab, transform.position + transform.forward * ability.range, Quaternion.identity);
+    Vector3 position = transform.position + transform.forward * ability.range;
+    GameObject instance = Instantiate(ability.prefab, new Vector3(position.x, 0, position.z), Quaternion.identity);
   }
 
   public override void DirectionCast(DirectionAbility ability)
   {
-    GameObject instance = Instantiate(ability.prefab, transform.position + transform.forward, Quaternion.identity);
+    GameObject instance = Instantiate(ability.prefab, transform.position + transform.forward, transform.rotation);
   }
 
 }

@@ -18,6 +18,11 @@ public class AITargeter : MonoBehaviour, ITargeter
 
   void Update()
   {
+    RotateTowardsTarget();
+  }
+
+  void RotateTowardsTarget()
+  {
     if (currentTarget)
     {
       Vector3 targetPostition = new Vector3(currentTarget.transform.position.x, transform.position.y, currentTarget.transform.position.z);
@@ -27,18 +32,22 @@ public class AITargeter : MonoBehaviour, ITargeter
 
   public bool FindTarget(Ability ability)
   {
+    currentTarget = null;
+    targetName = "Mr Nobody";
     LayerMask targetLayer = ability.targetTeam == AbilityTargetTeam.Enemy ? 1 << abilityCaster.hostileLayer : 1 << abilityCaster.friendlyLayer;
     Collider[] colliders = Physics.OverlapSphere(transform.position, ability.range, targetLayer);
     if (colliders.Length > 0)
     {
-      Collider collider = colliders.FirstOrDefault(x => ability.Test(RequirementType.Target, x.gameObject));
-      if (collider)
+      Collider col = colliders.FirstOrDefault(x => ability.Test(RequirementType.Target, x.gameObject));
+      if (col)
       {
-        GameObject target = collider.gameObject;
+        GameObject target = col.gameObject;
         currentTarget = target;
         targetName = target.name;
+        RotateTowardsTarget();
+        return true;
       }
     }
-    return colliders.Length > 0;
+    return false;
   }
 }

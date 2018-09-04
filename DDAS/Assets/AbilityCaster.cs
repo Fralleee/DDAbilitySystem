@@ -5,8 +5,8 @@ using UnityEngine;
 
 public abstract class AbilityCaster : MonoBehaviour
 {
-  public int hostileLayer;
-  public int friendlyLayer;
+  [HideInInspector] public int hostileLayer;
+  [HideInInspector] public int friendlyLayer;
 
   [SerializeField] protected List<Ability> abilities;
   protected ITargeter targeter;

@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 135952084779966450}
   - component: {fileID: 54600306607839788}
   - component: {fileID: 114122813692736442}
+  - component: {fileID: 114450679603350180}
   m_Layer: 0
   m_Name: Bolt
   m_TagString: Untagged
@@ -112,6 +113,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 027e0fce98a62e74ea1df3428b0b67ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114450679603350180
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1473587828425156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f311ee9e6e84ee48af7958f506f56dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force: 10
 --- !u!135 &135952084779966450
 SphereCollider:
   m_ObjectHideFlags: 1

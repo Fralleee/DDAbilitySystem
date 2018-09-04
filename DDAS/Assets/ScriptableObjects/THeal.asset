@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf961a02c11e5c04a8111bb5c8af47ee, type: 3}
+  m_Name: THeal
+  m_EditorClassIdentifier: 
+  targetTeam: 2
+  castType: 0
+  targetType: 0
+  requirements: 
+  image: {fileID: 0}
+  owner: {fileID: 0}
+  prefab: {fileID: 1875149567974870, guid: 0177e0ffac42ee744ae5d44c527b1bcb, type: 2}
+  range: 15

@@ -1,0 +1,120 @@
+---------------------------------------------------------------------------------------------
+# Day 1
+---------------------------------------------------------------------------------------------
+# Data driven Ability System
+
+
+##  Create the following abilities. They all should work on both AI and player
+
++ Target Ability 		=> Active, Target, Hostile
++ Heal 					=> Active, Target, Friendly
++ Extra movement speed 	=> Passive, Target, Self
++ Bolt 					=> Active, Direction, Hostile
+
+- Death ray 			=> Channel, Direction, Hostile
+- AOE 					=> Active, Location, Hostile
+- Healing Aura 			=> Toggle, Location, Friendly
+
+## 
+
+
+- AbilityRequirement as ScriptableObject
+
+- Find equal terms and generalize
+
+- Create targetfinders and such for both AI and Player
+  Try to share as much logic as possible
+  
+- Projector spell indicator (add this to later todo)
+
+---------------------------------------------------------------------------------------------
+
+
+
+---------------------------------------------------------------------------------------------
+# Day 2
+---------------------------------------------------------------------------------------------
+# AI to use DDAS
+- Make it work
+  If a spell is on target area, use the current targets position to cast it
+  If a spell is projective, use the direction toward current target to cast it
+
+---------------------------------------------------------------------------------------------
+
+
+
+---------------------------------------------------------------------------------------------
+# Day 3
+---------------------------------------------------------------------------------------------
+# Animations
+- Organize animations (wizard, units, shared)
+  Animations should be both BR and Regular
+- Attack animation for ranged and melee
+  Bow animation
+	Sword attack animation
+	
+# Death ragdolls
+---------------------------------------------------------------------------------------------
+
+
+
+---------------------------------------------------------------------------------------------
+# Day 4
+---------------------------------------------------------------------------------------------
+# Ultimates
+- Refactor Launch to be used as Mecanim or FSM 
+- When using an ultimate, make the sky turn dark
+- Sometimes it bugs when landing on uneven terrain
+---------------------------------------------------------------------------------------------
+
+
+
+---------------------------------------------------------------------------------------------
+# Day 5
+---------------------------------------------------------------------------------------------
+# Ultimates
+- Build siege as Mecanim or FSM
+  A lot of particle effects! 
+---------------------------------------------------------------------------------------------
+
+	
+	
+---------------------------------------------------------------------------------------------
+# Day 6
+---------------------------------------------------------------------------------------------
+# Armor/damage types
+- Use scriptableobjects, ryan hipple => elements talk (unite 2017)
+---------------------------------------------------------------------------------------------
+	
+	
+	
+################################################
+	Backlog
+################################################
+- Separate SelfBlocked from OtherBlocked (add this to later todo, selfblock => cant start new stuff, otherblock interrupt everything)
+
+# Improve character
+- https://www.youtube.com/watch?v=C2wwxd8SnKY
+
+# En liten stuga men stor som en mansion innuti, kör portaltricket
+
+# DamageController
+- Implement damage directions - Animate accordingly
+
+# Sounds
+- Damage
+- Effect
+- Hit
+  
+
+# Controller
+- Turn when above certain degree (45deg-)
+  Otherwise turn characters upper body towards direction
+	
+# InventorySystem
+- Kolla unitegrejerna
+
+# Game Info (menu, rules)
+- THE WIZARD MUST BE STOPPED
+- Orange vs Blue
+- Last boss: The Wizard

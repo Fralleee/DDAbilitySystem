@@ -7,9 +7,9 @@ public abstract class AbilityCaster : MonoBehaviour
 {
   public int hostileLayer;
   public int friendlyLayer;
+
   [SerializeField] protected List<Ability> abilities;
   protected ITargeter targeter;
-  protected GameObject channel;
 
   protected virtual void Awake()
   {
@@ -22,13 +22,14 @@ public abstract class AbilityCaster : MonoBehaviour
     HandlePassiveAbilities();
     abilities = HandleAbilities();
   }
+
   void HandlePassiveAbilities()
   {
     foreach (Ability ability in abilities.Where(x => x.castType == AbilityCastType.Passive))
     {
       Ability instance = Instantiate(ability);
       instance.Setup(this);
-      SelfCast((TargetAbility)instance, true);
+      TargetCast((TargetAbility)instance, true);
     }
   }
   List<Ability> HandleAbilities()
@@ -43,9 +44,9 @@ public abstract class AbilityCaster : MonoBehaviour
     return copies;
   }
 
-  public abstract void SelfCast(TargetAbility ability, bool parent = false);
-  public abstract void TargetCast(TargetAbility ability);
+  protected abstract bool TryCast(Ability ability, bool selfCast = false);
+  public abstract void TargetCast(TargetAbility ability, bool selfCast = false);
+  public abstract void PointCast(PointAbility ability);
   public abstract void DirectionCast(DirectionAbility ability);
-  public abstract void StopChannel();
 
 }

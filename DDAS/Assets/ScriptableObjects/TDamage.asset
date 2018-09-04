@@ -11,11 +11,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf961a02c11e5c04a8111bb5c8af47ee, type: 3}
   m_Name: TDamage
   m_EditorClassIdentifier: 
-  targetTeam: 1
+  targetTeam: 0
   castType: 0
   targetType: 0
-  requirements: 
+  requirements:
+  - {fileID: 11400000, guid: b9d70d27f3267f743b57889afab014bd, type: 2}
   image: {fileID: 0}
-  owner: {fileID: 0}
-  prefab: {fileID: 1167593996820298, guid: dc9b2daf77bca4144a8ed136e41e56d9, type: 2}
   range: 15
+  owner: {fileID: 0}
+  environmentLayer: 0
+  targetLayer: 0
+  prefab: {fileID: 1167593996820298, guid: dc9b2daf77bca4144a8ed136e41e56d9, type: 2}

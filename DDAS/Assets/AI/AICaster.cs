@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class AICaster : AbilityCaster
@@ -34,38 +35,29 @@ public class AICaster : AbilityCaster
     }
   }
 
-  public bool TryCast(Ability ability)
+  protected override bool TryCast(Ability ability, bool selfCast = false)
   {
-    return targeter.FindTarget(ability);
+    bool foundTarget = targeter.FindTarget(ability);
+    return ability.Test(targeter.currentTarget, selfCast);
   }
 
-  public override void StopChannel()
+  public override void TargetCast(TargetAbility ability, bool selfCast = false)
   {
-    Destroy(channel);
-    channel = null;
-  }
-
-  public override void SelfCast(TargetAbility ability, bool parent = false)
-  {
-    if (parent) Instantiate(ability.prefab, transform.position, Quaternion.identity, transform);
-    else
+    if (selfCast)
     {
-      GameObject instance = Instantiate(ability.prefab, transform.position, Quaternion.identity);
-      Destroy(instance, 1f);
+      Instantiate(ability.prefab, transform.position, Quaternion.identity, transform);
+      return;
     }
-  }
-  public override void TargetCast(TargetAbility ability)
-  {
-    if (!targeter.currentTarget) return;
-    if (ability.targetTeam == AbilityTargetTeam.Friendly && targeter.currentTarget.layer != friendlyLayer) return;
-    if (ability.targetTeam == AbilityTargetTeam.Enemy && targeter.currentTarget.layer != hostileLayer) return;
     GameObject instance = Instantiate(ability.prefab, targeter.currentTarget.transform.position, Quaternion.identity);
-    Destroy(instance, 1f);
   }
+
+  public override void PointCast(PointAbility ability)
+  {
+    GameObject instance = Instantiate(ability.prefab, targeter.currentTarget.transform.position, Quaternion.identity);
+  }
+
   public override void DirectionCast(DirectionAbility ability)
   {
-    Vector3 direction = (targeter.currentTarget.transform.position - transform.position).normalized;
     GameObject instance = Instantiate(ability.prefab, transform.position + transform.forward, Quaternion.identity);
-    instance.GetComponent<Rigidbody>().AddForce(direction * 10f, ForceMode.Impulse);
   }
 }

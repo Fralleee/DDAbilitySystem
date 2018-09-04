@@ -1,38 +1,13 @@
 # Data driven Ability System
++ Target Ability 				=> 	Active, Target, Hostile
++ Heal 									=> 	Active, Target, Friendly
++ Extra movement speed 	=> 	Passive, Target, Self
++ Bolt 									=> 	Active, Direction, Hostile
+- AOE 									=> 	Active, Location, Hostile
 
-- Rename Targeted => Direct
-  Rename Location => Point
 
-- Direct, Directional, Point are actually instantiation points
-  Direct = Instantiate on target transform position and apply effects directly
-  Directional = Instantiate on caster + forward
-  Point = Instantiate on world coordinate
-  
-- Active, Passive, Channel, Toggle are how the ability are casted
-  
-- Check DOTA Data driven if you can find code
-  Research channel
-  
-  
-
-##  Create the following abilities. They all should work on both AI and player
-+ Target Ability 		=> Active, Target, Hostile
-+ Heal 					=> Active, Target, Friendly
-+ Extra movement speed 	=> Passive, Target, Self
-+ Bolt 					=> Active, Direction, Hostile
-
-- AOE 					=> Active, Location, Hostile
-- Healing Aura 			=> Toggle, Location, Friendly
-
+// Wait with these for a while
+// Maybe player only
+- Healing Aura 		=> Toggle, Location, Friendly
 - Death ray 			=> Channel, Direction, Hostile
 - Life Leech 			=> Channel, Target, Hostile
-## 
-
-- AbilityRequirement as ScriptableObject
-
-- Find equal terms and generalize
-
-- Create targetfinders and such for both AI and Player
-  Try to share as much logic as possible
-  
-- Projector spell indicator (add this to later todo)

@@ -1,23 +1,38 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum AbilityTargetTeam { All, Enemy, Friendly, Self, None }
+public enum AbilityTargetTeam { Enemy, Friendly }
 public enum AbilityCastType { Active, Passive, Toggle, Channel }
-public enum AbilityTargetType { Target, Direction, Location }
-public enum AbilityRequirements { RequiresTarget, RequiresLineOfSight, RequiresMovement }
+public enum AbilityTargetType { Target, Direction, Point }
 
 public abstract class Ability : ScriptableObject
 {
   public AbilityTargetTeam targetTeam = AbilityTargetTeam.Enemy;
   public AbilityCastType castType = AbilityCastType.Active;
   public AbilityTargetType targetType = AbilityTargetType.Target;
-  public AbilityRequirements[] requirements;
+  public AbilityRequirement[] requirements;
   public Image image;
-  public AbilityCaster owner;
   public float range = 15f;
-  public virtual void Setup(AbilityCaster caster) { owner = caster; }
+
+  protected float nextTest;
+  protected float testRate;
+
+  [HideInInspector] public AbilityCaster owner;
+  [HideInInspector] public int environmentLayer;
+  [HideInInspector] public int targetLayer;
+
+  public void Setup(AbilityCaster caster)
+  {
+    owner = caster;
+    environmentLayer = LayerMask.NameToLayer("Environment");
+    targetLayer = targetTeam == AbilityTargetTeam.Enemy ? owner.hostileLayer : owner.friendlyLayer;
+  }
   public abstract void Cast(bool selfCast = false);
-  public abstract void StopCast();
+  public bool Test(GameObject target, bool selfCast = false)
+  {
+    return requirements.All(x => x.Test(owner, this, target, selfCast));
+  }
 }

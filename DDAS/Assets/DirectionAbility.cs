@@ -6,22 +6,9 @@ using UnityEngine;
 public class DirectionAbility : Ability
 {
   public GameObject prefab;
-  public override void Setup(AbilityCaster caster)
-  {
-    base.Setup(caster);
-  }
-
   public override void Cast(bool selfCast = false)
   {
-    owner.DirectionCast(this);
+    if (owner) owner.DirectionCast(this);
+    else Debug.LogWarning("No owner on Ability: " + name);
   }
-
-  public override void StopCast()
-  {
-    if(castType == AbilityCastType.Channel)
-    {
-      owner.StopChannel();
-    }
-  }
-
 }
